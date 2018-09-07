@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Instantiation with constructor -->
+    <bean id="fooWithConstructor" class="com.doubleu0714.spring.core.xmlconfig.Foo">
+    </bean>
+
+    <!-- Instantiation with static factory method -->
+    <bean id="barWithStaticFactoryMethod" class="com.doubleu0714.spring.core.xmlconfig.Bar" factory-method="createInstance">
+    </bean>
+    
+    <!-- Instantiation with instance factory method -->
+    <bean id="factoryInstance" class="com.doubleu0714.spring.core.xmlconfig.ServiceFactory">
+    </bean>
+
+    <bean id="fooWithFactoryInstance" factory-bean="factoryInstance" factory-method="createFooInstance">
+    </bean>
+</beans>
