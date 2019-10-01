@@ -35,7 +35,6 @@ PetStoreService service = context.getBean("petStore", PetStoreService.class);
 // use configured instance
 List<String> userList = service.getUsernameList();
 ```
----
 ## Beans
 &nbsp;Bean이란 Spring IoC Container에 의해 제어되는 객체를 의미합니다. Bean의 생성은 Configuration Metadata에 정의된 설정을 바탕으로 생성됩니다.  
 &nbsp;Bean의 속성  
@@ -61,6 +60,6 @@ List<String> userList = service.getUsernameList();
     <bean id="exampleBean" class="examples.ExampleBean"/>
     <bean name="anotherExample" class="examples.ExampleBeanTwo"/>
     ```
-  - [Example]
+  - [Example 소스](https://github.com/doubleu0714/handson-spring/tree/master/spring-core/src/main/java/io/doubleu0714/spring/core/instantiation)
 * static factory method 방식
 * instance factory method 방식
