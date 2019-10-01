@@ -1,2 +1,0 @@
-# spring-hanson
-spring-hanson
