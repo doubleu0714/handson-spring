@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myBean1" class="io.doubleu0714.spring.core.instantiation.MyBean1">  
+    </bean>
+
+    <bean id="myBean2" class="io.doubleu0714.spring.core.instantiation.MyBean2">
+        <constructor-arg type="int" value="13"/>
+        <constructor-arg type="java.lang.String" value="Hello MyBean2"/>
+    </bean>
+
+    <!-- more bean definitions go here -->
+
+</beans>
