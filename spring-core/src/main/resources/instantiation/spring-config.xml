@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myBean1" class="io.doubleu0714.spring.core.instantiation.MyBean1">  
+    <!-- 생성자 방식 -->
+    <bean id="byConstructor" class="io.doubleu0714.spring.core.instantiation.ByConstructor">
     </bean>
 
-    <bean id="myBean2" class="io.doubleu0714.spring.core.instantiation.MyBean2">
-        <constructor-arg type="int" value="13"/>
-        <constructor-arg type="java.lang.String" value="Hello MyBean2"/>
+    <bean id="byConstructorWithArgs" class="io.doubleu0714.spring.core.instantiation.ByConstructorWithArgs">
+        <constructor-arg name="arg1" type="int" value="13"/>
+        <constructor-arg name="arg2" type="java.lang.String" value="Hello MyBean2"/>
     </bean>
 
-    <!-- more bean definitions go here -->
+    <!-- Factory method 방식 -->
+    <bean id="byFactoryMethod" name="factory" class="io.doubleu0714.spring.core.instantiation.ByFactoryMethod"
+          factory-method="of">
+    </bean>
 
+    <bean id="byFactoryMethodWithArgs" name="factoryWithArgs"
+          class="io.doubleu0714.spring.core.instantiation.ByFactoryMethodWithArgs" factory-method="of">
+        <constructor-arg name="arg1" type="int" value="5425"/>
+        <constructor-arg name="arg2" type="java.lang.String" value="Hello factoryWithArgs"/>
+    </bean>
+
+    <!-- Factory 방식 -->
+    <bean id="byFactoryClass" class="io.doubleu0714.spring.core.instantiation.ByFactoryClass">
+    </bean>
+
+    <bean id="byFactoryClassProduct" class="io.doubleu0714.spring.core.instantiation.ByFactoryClassProduct" factory-bean="byFactoryClass" factory-method="createProduct">
+    </bean>
+
+    <bean id="byFactoryClassProductWithArgs" class="io.doubleu0714.spring.core.instantiation.ByFactoryClassProductWithArgs" factory-bean="byFactoryClass" factory-method="createProduct">
+        <constructor-arg name="arg1" type="int" value="7005425"/>
+        <constructor-arg name="arg2" type="java.lang.String" value="Hello byFactoryClassProductWithArgs"/>
+    </bean>
 </beans>

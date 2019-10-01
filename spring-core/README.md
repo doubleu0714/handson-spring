@@ -55,6 +55,8 @@ List<String> userList = service.getUsernameList();
   - 가장 일반적인 방식.
   - 추가적인 구현이 필요하지 않음.
   - 다만 기본 생성자가 있어야함.
+    + 기본 생성자 없으면  
+    org.springframework.beans.BeanInstantiationException: Failed to instantiate [io.doubleu0714.spring.core.instantiation.ByConstructorWithArgs]: No default constructor found; nested exception is java.lang.NoSuchMethodException: io.doubleu0714.spring.core.instantiation.ByConstructorWithArgs.<init>()
     + 인자값이 필요한 생성자의 경우 `<constructor-arg />` 를 사용해야 한다.
   - ``` xml
     <bean id="exampleBean" class="examples.ExampleBean"/>
@@ -62,4 +64,11 @@ List<String> userList = service.getUsernameList();
     ```
   - [Example 소스](https://github.com/doubleu0714/handson-spring/tree/master/spring-core/src/main/java/io/doubleu0714/spring/core/instantiation)
 * static factory method 방식
+  - 정의되어있는 메소드 명을 `factory-method` 속성값에 정의한다.
+  - 인자 값이 필요한 경우 `<constructor-arg />` 를 사용해야 한다.
+  - [Example 소스](https://github.com/doubleu0714/handson-spring/tree/master/spring-core/src/main/java/io/doubleu0714/spring/core/instantiation)
 * instance factory method 방식
+  - Factory 클래스를 통한 생성을 위해 Factory 를 bean 으로 등록해야한다.
+  - Factory를 통해 생성될 Bean 속성에 `factory-bean, factory-method` 를 정의한다.
+  - 인자 값이 필요한 경우 `<constructor-arg />` 를 사용해야 한다.
+  - [Example 소스](https://github.com/doubleu0714/handson-spring/tree/master/spring-core/src/main/java/io/doubleu0714/spring/core/instantiation)
